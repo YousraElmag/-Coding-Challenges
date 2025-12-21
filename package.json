@@ -1,0 +1,16 @@
+{
+  "name": "-coding-challenges-",
+  "version": "1.0.0",
+  "main": "challenge_one.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node challenge_one.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
