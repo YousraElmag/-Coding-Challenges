@@ -49,4 +49,26 @@ function generateHuffmanTable(node, code = '', table = {}) {
 }
 
 const huffmanTable = generateHuffmanTable(root);
-console.log(huffmanTable);
+
+// step 4
+function compressText(text, huffmanTable) {
+  let compressed = '';
+  for (const char of text) {
+    compressed += huffmanTable[char];
+  }
+  return compressed;
+}
+
+const compressedBits = compressText(text, huffmanTable);
+
+
+const header = JSON.stringify(Object.fromEntries(frequencyMap));
+
+
+const outputFilename = 'compressed.txt';
+const separator = '\n---\n';
+
+
+fs.writeFileSync(outputFilename, header + separator + compressedBits, 'utf-8');
+
+console.log( outputFilename);
