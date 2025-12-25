@@ -38,15 +38,15 @@ while (nodes.length > 1) {
 const root = nodes[0];
 
 // -----------------------
-function printCodes(node, code = '') {
+// step 3
+
+function generateHuffmanTable(node, code = '', table = {}) {
   if (!node) return;
-
-
-  if (node.char) {
-    console.log(JSON.stringify(node.char), '=>', code);
-  }
-
-  printCodes(node.left, code + '0');
-  printCodes(node.right, code + '1');
+  if (node.char) table[node.char] = code;
+  generateHuffmanTable(node.left, code + '0', table);
+  generateHuffmanTable(node.right, code + '1', table);
+  return table;
 }
-printCodes(root);
+
+const huffmanTable = generateHuffmanTable(root);
+console.log(huffmanTable);
